@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Cap01.Models;
+using Cap02.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Cap01.Controllers
+namespace Cap02.Controllers
 {
     public class InstituicaoController : Controller
     {

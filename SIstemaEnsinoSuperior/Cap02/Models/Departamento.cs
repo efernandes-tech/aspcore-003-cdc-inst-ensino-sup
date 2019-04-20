@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace Cap02.Models
 {
-    public class Instituicao
+    public class Departamento
     {
-        public long? InstituicaoID { get; set; }
+        public long? DepartamentoID { get; set; }
         public string Nome { get; set; }
-        public string Endereco { get; set; }
     }
 }
