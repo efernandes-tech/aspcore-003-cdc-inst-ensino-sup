@@ -60,7 +60,7 @@ namespace Cap02
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Instituicao}/{action=Index}/{id?}");
+                    template: "{controller=Departamento}/{action=Index}/{id?}");
             });
         }
     }
