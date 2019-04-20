@@ -41,7 +41,8 @@ namespace Cap01.Controllers
 
         public IActionResult Index()
         {
-            return View(instituicoes);
+            // return View(instituicoes);
+            return View(instituicoes.OrderBy(i => i.Nome));
         }
 
         // GET: Create
@@ -56,6 +57,21 @@ namespace Cap01.Controllers
         {
             instituicoes.Add(instituicao);
             instituicao.InstituicaoID = instituicoes.Select(i => i.InstituicaoID).Max() + 1;
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit(long id)
+        {
+            return View(instituicoes.Where(i => i.InstituicaoID == id).First());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Instituicao instituicao)
+        {
+            // instituicoes.Remove(instituicoes.Where(i => i.InstituicaoID == instituicao.InstituicaoID).First());
+            // instituicoes.Add(instituicao);
+            instituicoes[instituicoes.IndexOf(instituicoes.Where(i => i.InstituicaoID == instituicao.InstituicaoID).First())] = instituicao;
             return RedirectToAction("Index");
         }
     }
