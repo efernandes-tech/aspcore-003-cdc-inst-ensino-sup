@@ -10,12 +10,13 @@
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+            asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+            asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap-grid.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap-grid.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+            asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap-grid.min.css"
+            asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
     </environment>
+    @RenderSection("styles", false);
 </head>
 <body>
     <nav class="navbar navbar-light bg-primary navbar-fixed-top">
@@ -68,12 +69,12 @@
     </environment>
     <environment exclude="Development">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"
-                asp-fallback-src="~/lib/popper.js/umd/popper.js"></script>
+            asp-fallback-src="~/lib/popper.js/umd/popper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-                asp-fallback-src="~/lib/jquery/jquery.slim.min.js"></script>
+            asp-fallback-src="~/lib/jquery/jquery.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+            asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     </environment>
-    @RenderSection("ScriptPage", required: false)
+    @RenderSection("ScriptPage", false);
 </body>
 </html>
