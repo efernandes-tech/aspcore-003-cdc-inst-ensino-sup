@@ -10,9 +10,16 @@
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"
-            asp-fallback-href="~/lib/datatables/css/jquery.dataTables.min.css"
-            asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+              asp-fallback-href="~/lib/datatables/css/jquery.dataTables.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
     </environment>
+}
+
+@if (@TempData["Message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Message"]
+    </div>
 }
 
 <div class="card-block">
@@ -71,7 +78,7 @@
     </environment>
     <environment exclude="Development">
         <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"
-            asp-fallback-src="~/lib/datatables/js/jquery.dataTables.min.js">
+                asp-fallback-src="~/lib/datatables/js/jquery.dataTables.min.js">
         </script>
     </environment>
     <script type="text/javascript">
