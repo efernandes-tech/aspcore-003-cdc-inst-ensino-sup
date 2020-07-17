@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Cap04.Data;
 using Cap04.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Cap04.Controllers
@@ -64,12 +65,13 @@ namespace Cap04.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Instituicoes = new SelectList(_context.Instituicoes.OrderBy(b => b.Nome), "InstituicaoID", "Nome", departamento.InstituicaoID);
             return View(departamento);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("DepartamentoID,Nome")] Departamento departamento)
+        public async Task<IActionResult> Edit(long? id, [Bind("DepartamentoID,Nome,InstituicaoID")] Departamento departamento)
         {
             if (id != departamento.DepartamentoID)
             {
@@ -95,6 +97,7 @@ namespace Cap04.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Instituicoes = new SelectList(_context.Instituicoes.OrderBy(b => b.Nome), "InstituicaoID", "Nome", departamento.InstituicaoID);
             return View(departamento);
         }
 
