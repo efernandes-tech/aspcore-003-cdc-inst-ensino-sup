@@ -36,25 +36,31 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Nome)
                     </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Instituicao.Nome)
+                    </th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DepartamentoID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Nome)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.DepartamentoID">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.DepartamentoID">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.DepartamentoID">Delete</a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepartamentoID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Instituicao.Nome)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.DepartamentoID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.DepartamentoID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.DepartamentoID">Delete</a>
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>
