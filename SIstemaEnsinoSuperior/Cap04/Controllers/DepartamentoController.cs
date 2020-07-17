@@ -26,12 +26,15 @@ namespace Cap04.Controllers
         // GET: Departamento/Create
         public IActionResult Create()
         {
+            var instituicoes = _context.Instituicoes.OrderBy(i => i.Nome).ToList();
+            instituicoes.Insert(0, new Instituicao() { InstituicaoID = 0, Nome = "Selecione a instituição" });
+            ViewBag.Instituicoes = instituicoes;
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Nome")] Departamento departamento)
+        public async Task<IActionResult> Create([Bind("Nome, InstituicaoID")] Departamento departamento)
         {
             try
             {
