@@ -1,4 +1,4 @@
-﻿using Cap05.Models;
+﻿using Modelo.Cadastros;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
