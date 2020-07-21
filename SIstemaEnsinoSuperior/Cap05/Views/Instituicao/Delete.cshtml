@@ -17,34 +17,14 @@
 
 <div class="card-block">
     <div class="card-header text-white bg-secondary text-center h1">Exibindo uma instituição existente</div>
-    <div class="card-body">
-        <div class="form-group">
-            <label asp-for="InstituicaoID" class="control-label"></label>
-            <br />
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="fa fa-key" aria-hidden="true"></i>
-                </span>
-                <input asp-for="InstituicaoID" class="form-control" disabled="disabled" />
-            </div>
-            <label asp-for="Nome" class="control-label"></label>
-            <br />
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                </span>
-                <input asp-for="Nome" class="form-control" disabled="disabled" />
-            </div>
-            <label asp-for="Endereco" class="control-label"></label>
-            <br />
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="fa fa-address-card-o" aria-hidden="true"></i>
-                </span>
-                <input asp-for="Endereco" class="form-control" disabled="disabled" />
-            </div>
-        </div>
-    </div>
+
+    @{
+        await Html.RenderPartialAsync(
+            "~/Views/Instituicao/_PartialDetailsContentCard.cshtml",
+            Model
+        );
+    }
+
     <div class="card-footer bg-info text-center text-white">
         <form asp-action="Delete">
             <input type="hidden" asp-for="InstituicaoID" />
