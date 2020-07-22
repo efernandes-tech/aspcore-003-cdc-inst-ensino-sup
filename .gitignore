@@ -1,3 +1,7 @@
+SistemaEnsinoSuperior/Cap08/wwwroot/downloads/*
+
+#####
+
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
