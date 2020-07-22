@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Cap07.Data.DAL.Cadastros;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Cap07.Areas.Cadastros.Controllers
 {

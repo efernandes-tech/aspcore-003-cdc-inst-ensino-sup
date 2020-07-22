@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Modelo.Discente;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Cap07.Models.Infra;
 
 namespace Cap07.Data
 {
-    public class IESContext : DbContext
+    public class IESContext : IdentityDbContext<UsuarioDaAplicacao>
     {
         public DbSet<Departamento> Departamentos { get; set; }
         public DbSet<Instituicao> Instituicoes { get; set; }
