@@ -17,25 +17,18 @@
 
 <div class="card-block">
     <div class="card-header text-white bg-secondary text-center h1">Exibindo uma instituição existente</div>
-
+    
     @{
         await Html.RenderPartialAsync(
-            "~/Views/Instituicao/_PartialDetailsContentCard.cshtml",
+            "~/Areas/Cadastros/Views/Instituicao/_PartialDetailsContentCard.cshtml",
             Model
         );
     }
 
     <div class="card-footer bg-info text-center text-white">
-        <form asp-action="Delete">
-            <input type="hidden" asp-for="InstituicaoID" />
-            <input type="submit" value="Remover Instituição" class="btn btn-light" />
-            <a asp-action="Index" class="btn btn-info">
-                Retornar à listagem de instituições
-            </a>
-        </form>
+        <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model.InstituicaoID">Alterar</a> |
+        <a asp-action="Index" class="btn btn-warning">
+            Retornar à listagem de instituições
+        </a>
     </div>
 </div>
-
-@section ScriptPage {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

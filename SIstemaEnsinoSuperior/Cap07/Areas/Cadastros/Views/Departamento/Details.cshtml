@@ -1,4 +1,4 @@
-﻿@model Modelo.Cadastros.Instituicao
+﻿@model Modelo.Cadastros.Departamento
 
 @{
     Layout = "_LayoutIES";
@@ -6,6 +6,7 @@
 
 @section Styles {
     <environment include="Development">
+        <link rel="stylesheet" href="~/lib/datatables/css/jquery.dataTables.min.css" />
         <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
     </environment>
     <environment exclude="Development">
@@ -16,19 +17,19 @@
 }
 
 <div class="card-block">
-    <div class="card-header text-white bg-secondary text-center h1">Exibindo uma instituição existente</div>
-    
+    <div class="card-header text-white bg-secondary text-center h1">Exibindo um departamento existente</div>
+
     @{
         await Html.RenderPartialAsync(
-            "~/Views/Instituicao/_PartialDetailsContentCard.cshtml",
+            "~/Areas/Cadastros/Views/Departamento/_PartialDetailsContentCard.cshtml",
             Model
         );
     }
 
     <div class="card-footer bg-info text-center text-white">
-        <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model.InstituicaoID">Alterar</a> |
+        <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model.DepartamentoID">Alterar</a> |
         <a asp-action="Index" class="btn btn-warning">
-            Retornar à listagem de instituições
+            Retornar à listagem de departamentos
         </a>
     </div>
 </div>
