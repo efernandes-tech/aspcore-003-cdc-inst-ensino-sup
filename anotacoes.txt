@@ -58,3 +58,6 @@ CAPÍTULO 6 - CODE FIRST MIGRATIONS, DATA ANNOTATIONS E VALIDAÇÕES
     cd SistemaEnsinoSuperior/Cap06
     dotnet ef migrations add InitialCreate
     dotnet ef database update
+- 6.2 ATUALIZAÇÃO DO MODELO DE NEGÓCIO
+    dotnet ef migrations add CursoDisciplina
+    dotnet ef database update
