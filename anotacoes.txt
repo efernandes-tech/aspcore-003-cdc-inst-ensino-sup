@@ -80,3 +80,4 @@ CAPÍTULO 8 - UPLOADS, DOWNLOADS E ERROS
     dotnet ef database update
 - 8.2 APRESENTAÇÃO DA IMAGEM NA VISÃO DETAILS
 - 8.3 PERMITINDO O DOWNLOAD DA IMAGEM ENVIADA
+    - 8.3 Um CheckBox para remover a foto do acadêmico
