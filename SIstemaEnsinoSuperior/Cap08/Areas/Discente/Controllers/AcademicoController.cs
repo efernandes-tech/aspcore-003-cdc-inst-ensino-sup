@@ -135,5 +135,15 @@ namespace Cap08.Areas.Discente.Controllers
         {
             return await academicoDAL.ObterAcademicoPorId((long)id) != null;
         }
+
+        public async Task<FileContentResult> GetFoto(long id)
+        {
+            Academico academico = await academicoDAL.ObterAcademicoPorId(id);
+            if (academico != null)
+            {
+                return File(academico.Foto, academico.FotoMimeType);
+            }
+            return null;
+        }
     }
 }

@@ -78,3 +78,4 @@ CAPÍTULO 8 - UPLOADS, DOWNLOADS E ERROS
 - 8.1 UPLOADS
     dotnet ef migrations add FotoAcademico
     dotnet ef database update
+- 8.2 APRESENTAÇÃO DA IMAGEM NA VISÃO DETAILS
