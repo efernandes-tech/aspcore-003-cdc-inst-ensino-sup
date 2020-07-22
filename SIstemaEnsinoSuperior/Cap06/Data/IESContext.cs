@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Modelo.Discente;
 
 namespace Cap06.Data
 {
@@ -13,6 +14,7 @@ namespace Cap06.Data
         public DbSet<Instituicao> Instituicoes { get; set; }
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<Disciplina> Disciplinas { get; set; }
+        public DbSet<Academico> Academicos { get; set; }
 
         public IESContext(DbContextOptions<IESContext> options) : base(options)
         {

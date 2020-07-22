@@ -61,3 +61,6 @@ CAPÍTULO 6 - CODE FIRST MIGRATIONS, DATA ANNOTATIONS E VALIDAÇÕES
 - 6.2 ATUALIZAÇÃO DO MODELO DE NEGÓCIO
     dotnet ef migrations add CursoDisciplina
     dotnet ef database update
+- 6.3 O USO DE VALIDAÇÕES
+    dotnet ef migrations add Academic
+    dotnet ef database update
