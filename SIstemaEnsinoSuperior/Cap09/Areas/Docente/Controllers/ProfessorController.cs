@@ -7,6 +7,7 @@ using Cap09.Data;
 using Cap09.Data.DAL.Cadastros;
 using Cap09.Data.DAL.Docente;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Modelo.Cadastros;
 using Modelo.Docente;
 
@@ -74,6 +75,22 @@ namespace Cap09.Areas.Docente.Controllers
             return View(model);
         }
 
+        public JsonResult ObterDepartamentosPorInstituicao(long actionID)
+        {
+            var departamentos = departamentoDAL.ObterDepartamentosPorInstituicao(actionID).ToList();
+            return Json(new SelectList(departamentos, "DepartamentoID", "Nome"));
+        }
 
+        public JsonResult ObterCursosPorDepartamento(long actionID)
+        {
+            var cursos = cursoDAL.ObterCursosPorDepartamento(actionID).ToList();
+            return Json(new SelectList(cursos, "CursoID", "Nome"));
+        }
+
+        public JsonResult ObterProfessoresForaDoCurso(long actionID)
+        {
+            var professores = cursoDAL.ObterProfessoresForaDoCurso(actionID).ToList();
+            return Json(new SelectList(professores, "ProfessorID", "Nome"));
+        }
     }
 }
