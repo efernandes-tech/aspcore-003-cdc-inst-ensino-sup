@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Cap08.Data;
 using Cap08.Data.DAL.Discente;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Modelo.Discente;
@@ -63,12 +65,17 @@ namespace Cap08.Areas.Discente.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Nome,RegistroAcademico,Nascimento")] Academico academico)
+        public async Task<IActionResult> Create([Bind("Nome,RegistroAcademico,Nascimento")] Academico academico, IFormFile foto)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
+                    var stream = new MemoryStream();
+                    await foto.CopyToAsync(stream);
+                    academico.Foto = stream.ToArray();
+                    academico.FotoMimeType = foto.ContentType;
+
                     await academicoDAL.GravarAcademico(academico);
                     return RedirectToAction(nameof(Index));
                 }
@@ -82,7 +89,7 @@ namespace Cap08.Areas.Discente.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("AcademicoID,Nome,RegistroAcademico,Nascimento")] Academico academico)
+        public async Task<IActionResult> Edit(long? id, [Bind("AcademicoID,Nome,RegistroAcademico,Nascimento")] Academico academico, IFormFile foto)
         {
             if (id != academico.AcademicoID)
             {
@@ -92,6 +99,11 @@ namespace Cap08.Areas.Discente.Controllers
             {
                 try
                 {
+                    var stream = new MemoryStream();
+                    await foto.CopyToAsync(stream);
+                    academico.Foto = stream.ToArray();
+                    academico.FotoMimeType = foto.ContentType;
+
                     await academicoDAL.GravarAcademico(academico);
                 }
                 catch (DbUpdateConcurrencyException)
