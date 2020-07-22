@@ -38,6 +38,9 @@ namespace Cap09
             services.AddDbContext<IESContext>(options => options.UseSqlServer(
                 Configuration.GetConnectionString("IESConnection")));
 
+            services.AddSession();
+            services.AddDistributedMemoryCache();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddIdentity<UsuarioDaAplicacao, IdentityRole>().AddEntityFrameworkStores<IESContext>().AddDefaultTokenProviders();
@@ -68,6 +71,8 @@ namespace Cap09
             app.UseCookiePolicy();
 
             app.UseAuthentication();
+
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
