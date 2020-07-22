@@ -53,3 +53,8 @@ CAPÍTULO 5 - SEPARAÇÃO DA CAMADA DE NEGÓCIO
 - 5.5 ADAPTANDO AS VISÕES PARA MINIMIZAR REDUNDÂNCIAS
 
 CAPÍTULO 6 - CODE FIRST MIGRATIONS, DATA ANNOTATIONS E VALIDAÇÕES
+- 6.1 O USO DO CODE FIRST MIGRATIONS
+    dotnet tool install --global dotnet-ef
+    cd SistemaEnsinoSuperior/Cap06
+    dotnet ef migrations add InitialCreate
+    dotnet ef database update
